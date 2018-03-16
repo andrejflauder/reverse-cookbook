@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<style>
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+</style>
+    <body>
+    
+
+<h1>Izaberi namirnice:</h1>
+
+<label class="container">
+        Jaja: <input type="checkbox" id="jaja" value="check">
+      <span class="checkmark"></span>
+    </label>
+
+<br>
+
+<label class="container">
+       Brasno: <input type="checkbox" id="brasno" value="check">
+      <span class="checkmark"></span>
+    </label>
+
+<br>
+
+<label class="container">
+       Mlijeko: <input type="checkbox" id="mlijeko" value="check">
+      <span class="checkmark"></span>
+    </label>
+
+<br>
+
+<label class="container">
+       Piletina: <input type="checkbox" id="piletina" value="check">
+      <span class="checkmark"></span>
+    </label>
+
+<br>
+
+<label class="container">
+       Povrce: <input type="checkbox" id="povrce" value="check">
+      <span class="checkmark"></span>
+    </label>
+
+
+
+<button onclick="myFunction()">Prikazi moguca jela</button>
+
+<p id="palacinke" style="display:none">Palacinke - <a href="#recept">recept</a></p>
+<p id="juha" style="display:none">Pileca juha - <a href="#recept">recept</a></p>
+<p id="pecenopile" style="display:none">Peceno pile - <a href="#recept">recept</a></p>
+
+<script>
+function myFunction() {
+    var checkjaja = document.getElementById("jaja");
+    var checkbrasno = document.getElementById("brasno");
+    var checkmlijeko = document.getElementById("mlijeko");
+    var jelopalacinke = document.getElementById("palacinke");
+
+    var checkpiletina = document.getElementById("piletina");
+    var checkpovrce = document.getElementById("povrce");
+    var jelojuha = document.getElementById("juha");
+    var jelopecenopile = document.getElementById("pecenopile");
+
+    if ((checkjaja.checked == true) && (checkbrasno.checked == true) && (checkmlijeko.checked == true)) {
+        jelopalacinke.style.display = "block";
+    } if ((checkpiletina.checked == true) && (checkpovrce.checked == true)) {
+        jelojuha.style.display = "block";
+    } if ((checkpiletina.checked == true) && (checkjaja.checked == true)) {
+        jelopecenopile.style.display = "block";}
+
+}
+
+</script>
+
+    </body>
+</head>
+</html>
